@@ -1,0 +1,99 @@
+{
+  "name": "paste-json-flutter-model",
+  "displayName": "Paste JSON → Flutter Model",
+  "description": "Paste an API JSON response and generate a Flutter/Dart model file with fromJson, toJson and copyWith.",
+  "version": "0.1.1",
+  "publisher": "mohammed-worafi",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "flutter",
+    "dart",
+    "json",
+    "model",
+    "fromJson",
+    "json to dart"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "flutterJsonModel.open",
+        "title": "Flutter: JSON → Dart Model (paste response)"
+      },
+      {
+        "command": "flutterJsonModel.fromClipboard",
+        "title": "Flutter: Dart Model from Clipboard JSON"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "flutterJsonModel.open",
+          "group": "navigation@90"
+        },
+        {
+          "command": "flutterJsonModel.fromClipboard",
+          "group": "navigation@91"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "flutterJsonModel.open",
+        "key": "ctrl+alt+j",
+        "mac": "cmd+alt+j"
+      }
+    ],
+    "configuration": {
+      "title": "Flutter JSON Model",
+      "properties": {
+        "flutterJsonModel.defaultFolder": {
+          "type": "string",
+          "default": "lib/models",
+          "description": "Folder (relative to workspace root) used when no folder is selected in the explorer."
+        },
+        "flutterJsonModel.nullableFields": {
+          "type": "boolean",
+          "default": true,
+          "description": "Make all fields nullable (safer for API responses)."
+        },
+        "flutterJsonModel.copyWith": {
+          "type": "boolean",
+          "default": true,
+          "description": "Generate copyWith method."
+        },
+        "flutterJsonModel.toString": {
+          "type": "boolean",
+          "default": false,
+          "description": "Generate toString override."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node test/test.js",
+    "package": "npx --yes @vscode/vsce package"
+  },
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#0B3D91",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bxi4/paste-json-flutter-model.git"
+  },
+  "homepage": "https://github.com/bxi4/paste-json-flutter-model#readme",
+  "bugs": {
+    "url": "https://github.com/bxi4/paste-json-flutter-model/issues"
+  }
+}

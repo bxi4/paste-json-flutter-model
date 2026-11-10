@@ -1,0 +1,7 @@
+test/**
+.vscodeignore
+.gitignore
+*.vsix
+*.mov
+images/**
+.git/**
